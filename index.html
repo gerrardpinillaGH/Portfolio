@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gerrard Pinilla — Portfolio</title>
+  <meta name="description" content="Portfolio of Gerrard Pinilla — Software Engineering Student in Berlin. About, Projects, Skills, Experience, Resume, and Contact." />
+  <meta property="og:title" content="Gerrard Pinilla — Portfolio" />
+  <meta property="og:description" content="About, Projects, Skills, Experience, Resume, and Contact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/preview.png" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🚀</text></svg>">
+  <style>
+    :root{
+      --bg:#0b0f14;--card:#0f172a;--muted:#94a3b8;--text:#e5e7eb;--brand:#0ea5e9;--accent:#22d3ee;--ring:rgba(14,165,233,.35);
+      --border:color-mix(in oklab, var(--text) 14%, transparent);
+      --shadow:0 10px 30px rgba(2,6,23,.45)
+    }
+    @media (prefers-color-scheme: light){:root{--bg:#f8fafc;--card:#ffffff;--text:#0f172a;--muted:#475569;--brand:#0284c7;--accent:#0891b2;--ring:rgba(2,132,199,.2);--shadow:0 8px 22px rgba(2,8,23,.08)}}
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:auto;padding:0 20px}
+    /* Header */
+    header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(180%) blur(10px);background:color-mix(in oklab,var(--bg) 85%, transparent);border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+    .brand{font-weight:800;letter-spacing:.3px}
+    .nav .links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+    .nav .links a{padding:8px 10px;border-radius:10px}
+    .nav .links a:hover{background:color-mix(in oklab,var(--text) 8%, transparent)}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid color-mix(in oklab,var(--brand) 55%, var(--text) 15%);background:linear-gradient(180deg,color-mix(in oklab,var(--brand) 20%, transparent), transparent);box-shadow:var(--shadow)}
+    .ghost{border-color:var(--border);background:transparent;box-shadow:none}
+    .section{padding:56px 0}
+    .section-title{display:flex;align-items:center;justify-content:space-between;margin:0 0 18px}
+    .section-title h2{margin:0;font-size:clamp(22px,3vw,30px)}
+    /* Full-width banner */
+    
+   /* Full-width banner */
+.banner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: min(38vh, 460px);
+  background: url('./assets/Banner.png') center/cover no-repeat;
+  border-bottom: 1px solid var(--border);
+}
+.banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.2));
+}
+.project img {
+  width: 100%;
+  height: 260px;        /* Adjust as needed */
+  object-fit: cover;    /* Keeps proportions and crops nicely */
+  border-radius: 12px;
+}
+@media (max-width: 700px) {
+  .project img { height: 200px; }
+}
+    /* About */
+    .about{display:grid;grid-template-columns:160px 1fr;gap:20px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px}
+    .avatar{width:160px;height:160px;border-radius:50%;overflow:hidden;border:4px solid var(--ring);box-shadow:var(--shadow)}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+    /* Projects */
+    .grid{display:grid;gap:16px}
+    .cards{grid-template-columns:repeat(12,1fr)}
+    .card{grid-column:span 6;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+    .card.lg{grid-column:span 12}
+    .project{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
+    .project img{border-radius:12px}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 10px}
+    .chip{font-size:12px;border:1px solid var(--border);padding:4px 10px;border-radius:999px;color:var(--muted)}
+    /* Resume box */
+    .resume-box{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px}
+    .resume-preview{width:100%;aspect-ratio:4/5;background:url('/cv_preview.jpg') center/cover no-repeat;border-radius:12px;border:1px solid var(--border)}
+    /* Footer */
+    footer{padding:28px 0 46px;border-top:1px solid var(--border);color:var(--muted)}
+    .socials{display:flex;gap:12px}
+    @media(max-width:900px){.about{grid-template-columns:1fr}.project{grid-template-columns:1fr}.card{grid-column:span 12}.resume-box{grid-template-columns:1fr}}
+  </style>
+  <script>
+    // Smooth scroll for in-page links
+    addEventListener('DOMContentLoaded',()=>{
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click',e=>{const id=a.getAttribute('href');const el=document.querySelector(id);if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}})
+      })
+      document.getElementById('year').textContent=new Date().getFullYear();
+    })
+  </script>
+</head>
+<body>
+  <!-- 1) NAVIGATION / HEADER -->
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top">Gerrard<span style="color:var(--brand)">.</span></a>
+      <nav class="links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects / Portfolio</a>
+        <a href="#skills">Skills / Tech Stack</a>
+        <a href="#experience">Experience</a>
+        <a href="#resume">Resume / CV</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 2) FULL-WIDTH IMAGE BANNER -->
+  <div class="banner" id="top" role="img" aria-label="Technology banner image"></div>
+
+  <main class="container">
+    <!-- 3) ABOUT SECTION -->
+    <section id="about" class="section">
+      <div class="section-title"><h2>About</h2></div>
+      <div class="about">
+        <div class="avatar">
+          <img src="./assets/PFP.jpeg" alt="Portrait of Gerrard Pinilla"/>
+        </div>
+        <div>
+          <p><strong>Bio:</strong> I’m Gerrard Pinilla, a Software Engineering student based in Berlin. I build clean, fast, user‑friendly software—mostly Flutter apps and Python/SQL analytics. I’m motivated by solving real problems with thoughtful design and data‑driven insights.</p>
+          <p><strong>Academic background:</strong> B.Sc. Software Engineering — University of Europe for Applied Sciences (UE), Berlin.</p>
+          <p><strong>Core interests / mission:</strong> AI, FinTech, and cloud‑ready development. I enjoy turning complex ideas into simple products people actually enjoy using.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4) PROJECTS SECTION -->
+    <section id="projects" class="section">
+      <div class="section-title">
+        <h2>Projects / Portfolio</h2>
+        <a class="btn ghost" href="https://github.com/gerrardpinillaGH?tab=repositories" target="_blank" rel="noopener">All Repos →</a>
+      </div>
+      <div class="grid cards">
+        <article class="card lg project">
+          <div>
+            <img src="./assets/stockmate_project_image.png" alt="StockMate app preview" loading="lazy" />
+          </div>
+          <div>
+            <h3>StockMate — Flutter Stock App</h3>
+            <p>Real‑time stock tracking with live charts, region‑based lists, and a portfolio watchlist. Built with Flutter (Dart) and the Finnhub API.</p>
+            <div class="chips"><span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">REST API</span></div>
+            <p><a class="btn ghost" href="https://github.com/gerrardpinillaGH/StockMate" target="_blank" rel="noopener">Source Code</a></p>
+          </div>
+        </article>
+        <article class="card project">
+          <div>
+            <img src="./assets/cnn_project_image.png" alt="Skin Cancer Detection project preview" loading="lazy" />
+          </div>
+          <div>
+            <h3>Skin Cancer Detection — Deep Learning & CV</h3>
+            <p>CNN‑based pipeline on HAM10000 for multi‑class lesion classification. Data preprocessing, augmentation, and comparison of CNN/ResNet/MobileNet.</p>
+            <div class="chips"><span class="chip">Python</span><span class="chip">TensorFlow</span><span class="chip">Jupyter</span></div>
+            <p><a class="btn ghost" href="https://github.com/gerrardpinillaGH/SkinCancer_CNN" target="_blank" rel="noopener">Repository</a></p>
+          </div>
+        </article>
+        <article class="card project">
+          <div>
+           <img src="./assets/sql_project_image.png" alt="Data Science Job Analysis preview" loading="lazy" />
+          </div>
+          <div>
+            <h3>Data Science Job Analysis — SQL & Analytics</h3>
+            <p>Analyzed 2023–2024 data science job postings with PostgreSQL to identify in‑demand skills & salary trends. Built interactive dashboards by region and technology.</p>
+            <div class="chips"><span class="chip">SQL</span><span class="chip">PostgreSQL</span><span class="chip">Tableau</span></div>
+            <p><a class="btn ghost" href="https://github.com/gerrardpinillaGH/SQL-Data-Job-Analysis" target="_blank" rel="noopener">Repository</a></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 5) SKILLS SECTION -->
+    <section id="skills" class="section">
+      <div class="section-title"><h2>Skills / Tech Stack</h2></div>
+      <div class="card lg">
+        <p><strong>Some of the skills I have are:</strong></p>
+        <ul>
+          <li><strong>Languages & Tools:</strong> Python (Pandas, NumPy, Matplotlib), R, SQL, Excel, HTML/CSS, JavaScript, Dart (Flutter), Git, GitHub</li>
+          <li><strong>Technologies:</strong> PostgreSQL, REST APIs, Agile (Scrum), SDLC, NLP (TextBlob), Data Visualization (Tableau)</li>
+          <li><strong>Coursework:</strong> Data Structures & Algorithms, Databases, Software Design, Machine Learning, Financial Analytics</li>
+          <li><strong>Soft Skills:</strong> Critical Thinking, Communication, Teamwork, Project Management, Adaptability</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6) EXPERIENCE SECTION -->
+    <section id="experience" class="section">
+      <div class="section-title"><h2>Experience</h2></div>
+      <div class="card lg">
+        <div class="timeline">
+          <div class="event">
+            <strong>Summer Intern — International Export Operations · LATEX S.A.</strong>
+            <div class="muted">Panama Free Zone · Summer 2024</div>
+            <div>Financial planning & budgeting for exports; researched currency/market trends; monitored cash flow; supported invoicing & cross‑border payments; proposed efficiency improvements in transaction tracking.</div>
+          </div>
+          <div class="event">
+            <strong>Software Engineering Student · University of Europe for Applied Sciences</strong>
+            <div class="muted">Berlin · 2023 – Present</div>
+            <div>Projects in Flutter (mobile), Python/SQL analytics, and ML; agile teamwork and focus on clean architecture & developer experience.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   <!-- 7) RESUME SECTION -->
+<section id="resume" class="section">
+  <div class="section-title"><h2>Resume / CV</h2></div>
+
+  <div class="resume-box" style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start">
+    <!-- CV Preview Image -->
+    <div style="flex:1 1 300px;">
+      <img src="./assets/cv_image.png" 
+           alt="CV preview of Gerrard Pinilla" 
+           style="width:100%;border-radius:12px;border:1px solid var(--border);">
+    </div>
+
+    <!-- Download Section -->
+    <div style="flex:1 1 300px;">
+      <p>You can download my latest resume or open it in a new tab:</p>
+      <p>
+        <a class="btn" href="assets\Gerrard_Pinilla_CV_Software_Engineering_St.pdf" target="_blank" rel="noopener">
+          Open / Download CV
+        </a>
+      </p>
+      <p class="muted">
+        Last updated October 2025 — includes education, projects, and technical experience.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+    <!-- 8) CONTACT SECTION -->
+    <section id="contact" class="section">
+      <div class="section-title"><h2>Contact</h2></div>
+      <div class="card lg">
+        <p><strong>Let’s build something!</strong> The fastest way to reach me is LinkedIn or email.</p>
+        <p>
+          <a class="btn" href="mailto:gerrardpinillabusiness@gmail.com">gerrardpinillabusiness@gmail.com</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/gerrardpinilla" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn ghost" href="https://github.com/gerrardpinillaGH" target="_blank" rel="noopener">GitHub</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- 9) FOOTER -->
+  <footer>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <small>Copyright © <span id="year"></span> Gerrard Pinilla</small>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/gerrardpinilla" aria-label="LinkedIn" target="_blank" rel="noopener">🔗</a>
+        <a href="https://github.com/gerrardpinillaGH" aria-label="GitHub" target="_blank" rel="noopener">💻</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
